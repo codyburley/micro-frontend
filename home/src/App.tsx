@@ -6,11 +6,11 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const App = () => (
-  <>
+  <div className="text-3xl mx-auto max-w-6xl">
     <Header />
-    <h1 className="text-3xl my-8">Home page content</h1>
+    <div className="my-10">Home page content</div>
     <Footer />
-  </>
+  </div>
 );
 
 ReactDOM.render(<App />, document.getElementById("app"));
