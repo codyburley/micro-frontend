@@ -1,20 +1,28 @@
 import React, { useState, useEffect } from "react";
 
-import { getProducts, getProductById } from "./products";
+import { getProducts, getProductById, currency } from "./products";
 
-import { Product } from "../../server/src/products";
+import { Product } from "./types";
 
 const HomeContent = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     getProducts().then(setProducts);
   }, []);
+
   return (
     <div className="my-10 grid grid-cols-4 gap-5">
       {products.map((product: Product) => (
         <div key={product.id}>
           <img src={product.image} alt={product.name} />
+          <div className="flex">
+            <div className="flex-grow font-bold">
+              <a href="">{product.name}</a>
+            </div>
+            <div className="flex-end">{currency.format(product.price)}</div>
+          </div>
+          <div className="text-sm mt-4">{product.description}</div>
         </div>
       ))}
     </div>
