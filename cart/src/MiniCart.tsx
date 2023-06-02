@@ -39,7 +39,7 @@ const MiniCart = () => {
             style={{
               width: 300,
               top: "2rem",
-              gridTemplateColumns: "1fr 3fr 10fr 2fr",
+              left: -250,
             }}
           >
             <div
